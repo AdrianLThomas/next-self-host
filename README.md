@@ -1,6 +1,10 @@
+_Forked from: https://github.com/leerob/next-self-host_
+
+**Modified to support PGlite by default.**
+
 # Next.js Self Hosting Example
 
-This repo shows how to deploy a Next.js app and a PostgreSQL database on a Ubuntu Linux server using Docker and Nginx. It showcases using several features of Next.js like caching, ISR, environment variables, and more.
+This repo shows how to deploy a Next.js app and a Pglite database on a Ubuntu Linux server using Docker and Nginx. It showcases using several features of Next.js like caching, ISR, environment variables, and more.
 
 [**📹 Watch the tutorial (45m)**](https://www.youtube.com/watch?v=sIVL4JMqRfc)
 
