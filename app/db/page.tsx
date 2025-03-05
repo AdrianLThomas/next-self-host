@@ -1,8 +1,8 @@
-import { addTodoAction, deleteTodoAction } from './actions';
-import { db } from './drizzle';
-import { todos } from './schema';
+import { addTodoAction, deleteTodoAction } from "./actions";
+import { db } from "./drizzle";
+import { todos } from "./schema";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   let todoList = await db.select().from(todos).orderBy(todos.createdAt);
@@ -17,8 +17,8 @@ export default async function Home() {
       <ul>
         {todoList.map((todo) => (
           <li key={todo.id}>
-            <span style={{ marginRight: '10px' }}>{todo.content}</span>
-            <form action={deleteTodoAction} style={{ display: 'inline' }}>
+            <span style={{ marginRight: "10px" }}>{todo.content}</span>
+            <form action={deleteTodoAction} style={{ display: "inline" }}>
               <input type="hidden" value={todo.id} name="id" />
               <button type="submit">Delete</button>
             </form>
