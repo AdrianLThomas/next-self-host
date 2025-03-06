@@ -1,13 +1,14 @@
 import { drizzle } from "drizzle-orm/pglite";
 // import postgres from 'postgres';
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import { PGlite } from "@electric-sql/pglite";
 
-dotenv.config();
+// dotenv.config();
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL environment variable is not set");
-}
+// if (!process.env.DATABASE_URL) {
+//   throw new Error("DATABASE_URL environment variable is not set");
+// }
 
-export const client = new PGlite(process.env.DATABASE_URL!);
+// export const client = new PGlite(process.env.DATABASE_URL!);
+export const client = new PGlite("idb://my-pgdata");
 export const db = drizzle({ client });

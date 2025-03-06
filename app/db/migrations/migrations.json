@@ -1,0 +1,1 @@
+[{"sql":["CREATE TABLE IF NOT EXISTS \"todos\" (\n\t\"id\" serial PRIMARY KEY NOT NULL,\n\t\"content\" varchar(255) NOT NULL,\n\t\"completed\" boolean DEFAULT false,\n\t\"created_at\" timestamp DEFAULT now()\n);\n"],"bps":true,"folderMillis":1728219822947,"hash":"7ffca3a64e2bccadc8b2d890b07af7fcea7e9b232e944c83903921f77352b75c"}]
