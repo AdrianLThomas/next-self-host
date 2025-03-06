@@ -1,18 +1,19 @@
-'use server';
-
-import { revalidatePath } from 'next/cache';
-import { db } from './drizzle';
-import { todos } from './schema';
-import { eq } from 'drizzle-orm';
+import { db } from "./drizzle";
+import { todos } from "./schema";
+import { eq } from "drizzle-orm";
 
 export async function addTodoAction(formData: FormData) {
-  const content = formData.get('content') as string;
-  await db.insert(todos).values({ content });
-  revalidatePath('/db');
+  const todo: typeof todos.$inferInsert = {
+    content: formData.get("content") as string,
+  };
+  const inserted = await db.insert(todos).values(todo).returning();
+
+  return inserted[0];
 }
 
 export async function deleteTodoAction(formData: FormData) {
-  const id = formData.get('id') as string;
-  await db.delete(todos).where(eq(todos.id, Number(id)));
-  revalidatePath('/db');
+  const id = parseInt(formData.get("id") as string);
+  const deleted = await db.delete(todos).where(eq(todos.id, id)).returning();
+
+  return deleted[0];
 }
